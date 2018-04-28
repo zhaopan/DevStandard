@@ -1,0 +1,35 @@
+## osx
+.DS_Store
+
+## bin
+bin/
+obj/
+Debug/
+Release/
+
+## local config
+
+## cache
+## application/cache/*
+## !application/cache/index.html
+## !application/cache/.htaccess
+
+## logs
+## application/logs/*
+## !application/logs/index.html
+## !application/logs/.htaccess
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+.vscode
+.vscode/*
+*.v11.suo
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
