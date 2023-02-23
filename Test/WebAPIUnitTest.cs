@@ -1,8 +1,8 @@
-﻿using BYB.WebAPI;
+﻿using Example.WebAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace BYB.Test
+namespace Example.Test
 {
     [TestClass]
     public class WebAPIUnitTest
@@ -23,7 +23,7 @@ namespace BYB.Test
         }
 
         /// <summary>
-        /// 以内部项目方式调试
+        /// 以 内部项目 方式调试
         /// </summary>
         [TestMethod]
         public void TestLogin()
@@ -92,7 +92,7 @@ namespace BYB.Test
         }
 
         /// <summary>
-        /// 以WepAPI方式调试
+        /// 以 WepAPI 方式调试
         /// </summary>
         [TestMethod]
         public void WebTestLogin()
@@ -102,7 +102,7 @@ namespace BYB.Test
             //s002 123456 未知道用户
             //s003 123456 已禁用用户
 
-            string url = "http://192.168.1.254:1080/wepapi/login";
+            string url = "http://127.0.0.1:1080/wepapi/login";
 
             //密码为空
             var postdata = new

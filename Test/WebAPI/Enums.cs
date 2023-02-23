@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     /// <summary>
     /// 返回错误枚举对象

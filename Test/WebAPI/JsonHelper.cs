@@ -1,5 +1,5 @@
 ﻿
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     public static class JsonHelper
     {

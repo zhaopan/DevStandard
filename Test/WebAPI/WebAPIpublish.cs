@@ -1,5 +1,5 @@
 ﻿
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     /// <summary>
     /// WebAPI发布对象

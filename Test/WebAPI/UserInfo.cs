@@ -1,5 +1,5 @@
 ﻿
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     /// <summary>
     /// 用户实体对象

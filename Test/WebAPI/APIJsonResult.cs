@@ -1,5 +1,5 @@
 ﻿
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     //标准接口返回对象
     public class APIJsonResult

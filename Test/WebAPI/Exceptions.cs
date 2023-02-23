@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BYB.WebAPI
+namespace Example.WebAPI
 {
     /// <summary>
     /// 基础异常对象
