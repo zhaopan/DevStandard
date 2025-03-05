@@ -12,6 +12,13 @@
 - [81.技术部-主要职责划分.md](81.技术部-主要职责划分.md)
 - [82.技术部-工作处理分配.md](82.技术部-工作处理分配.md)
 - [99.技术部规划初稿.md](99.技术部规划初稿.md)
+- [PHP](PHP)
+  - [00.开发规范.md](PHP/00.开发规范.md)
+  - [10.命名规范-前言v1.0.md](PHP/10.命名规范-前言v1.0.md)
+  - [21.命名规范-PHPv1.0.md](PHP/21.命名规范-PHPv1.0.md)
+- [Test](Test)
+  - [Properties](Test/Properties)
+  - [WebAPI](Test/WebAPI)
 - [README.md](README.md)
 
 <!-- /TOC -->
