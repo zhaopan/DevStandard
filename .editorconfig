@@ -1,0 +1,98 @@
+# EditorConfig - PHP编码规范实施文件
+# 最后更新：2024-04-05
+
+# --------------------
+# 全局基础配置
+# --------------------
+root = true
+
+[*]
+charset = utf-8                # 强制UTF-8无BOM编码
+end_of_line = lf               # UNIX风格换行符
+trim_trailing_whitespace = true # 自动删除行尾空格
+insert_final_newline = true    # 文件末尾保留空行
+indent_style = space           # 使用空格缩进（禁止制表符）
+
+# --------------------
+# PHP专属配置
+# --------------------
+[*.php]
+indent_size = 4                # 4空格缩进
+max_line_length = 120          # 最大行宽120字符
+
+# PHPStorm/IntelliJ专属配置
+ij_php_braces_placement = next_line           # 大括号换行风格
+ij_php_keep_blank_lines_in_code = 1           # 代码块内保留空行数
+ij_php_spaces_after_if_parentheses = true     # if条件后空格
+ij_php_spaces_after_for_parentheses = true    # for循环后空格
+ij_php_spaces_around_string_concat_operator = true # 字符串连接符空格
+ij_php_wrap_chained_method_calls = chop_down  # 链式调用换行方式
+ij_php_keep_closing_php_tag = false           # 关闭PHP结束标签
+
+# --------------------
+# 前端文件配置
+# --------------------
+[*.{js,ts,jsx,tsx}]
+indent_size = 2                # 2空格缩进
+max_line_length = 100          # 最大行宽100字符
+
+[*.{css,scss,less}]
+indent_size = 2
+max_line_length = 100
+
+# --------------------
+# 配置文件特殊规则
+# --------------------
+[config/*.php]
+ij_php_class_name_style = SNAKE_CASE_UPPER    # 配置类全大写
+ij_php_constant_naming = SNAKE_CASE_UPPER     # 常量命名规范
+
+# --------------------
+# 测试文件特殊规则
+# --------------------
+[test/**/*.php]
+ij_php_unit_test_class_suffix = Test          # 测试类后缀
+ij_php_method_naming = camelCase              # 测试方法小驼峰
+
+# --------------------
+# 文档文件配置
+# --------------------
+[*.md]
+trim_trailing_whitespace = false  # Markdown允许行尾空格
+max_line_length = off             # 禁用行宽限制
+
+# --------------------
+# 数据文件配置
+# --------------------
+[*.{yml,yaml}]
+indent_size = 2                   # YAML 2空格缩进
+
+[*.json]
+indent_size = 2
+
+# --------------------
+# 数据库脚本文件
+# --------------------
+[*.sql]
+keyword_case = upper              # SQL关键字大写
+ij_sql_spaces_around_operators = 1 # 操作符空格
+ij_sql_align_clauses = true        # 子句对齐
+
+# --------------------
+# 模板文件配置
+# --------------------
+[*.{twig,blade.php}]
+ij_template_attribute_value_wrap = double_quotes # 属性双引号
+ij_template_indent_size = 2
+
+# --------------------
+# 构建工具配置
+# --------------------
+[Makefile]
+indent_style = tab               # Makefile使用制表符
+
+# --------------------
+# 例外文件配置
+# --------------------
+[package.json]
+indent_size = 2
