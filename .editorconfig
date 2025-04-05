@@ -1,5 +1,5 @@
-# EditorConfig - PHP编码规范实施文件
-# 最后更新：2024-04-05
+# EditorConfig - PHP编码规范完整控制
+# 版本：2.2.0 | 最后更新：2024-04-05
 
 # --------------------
 # 全局基础配置
@@ -7,92 +7,120 @@
 root = true
 
 [*]
-charset = utf-8                # 强制UTF-8无BOM编码
-end_of_line = lf               # UNIX风格换行符
-trim_trailing_whitespace = true # 自动删除行尾空格
-insert_final_newline = true    # 文件末尾保留空行
-indent_style = space           # 使用空格缩进（禁止制表符）
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
 
 # --------------------
-# PHP专属配置
+# PHP完整控制配置
 # --------------------
 [*.php]
-indent_size = 4                # 4空格缩进
-max_line_length = 120          # 最大行宽120字符
+indent_size = 4
+max_line_length = 120
 
-# PHPStorm/IntelliJ专属配置
-ij_php_braces_placement = next_line           # 大括号换行风格
-ij_php_keep_blank_lines_in_code = 1           # 代码块内保留空行数
-ij_php_spaces_after_if_parentheses = true     # if条件后空格
-ij_php_spaces_after_for_parentheses = true    # for循环后空格
-ij_php_spaces_around_string_concat_operator = true # 字符串连接符空格
-ij_php_wrap_chained_method_calls = chop_down  # 链式调用换行方式
-ij_php_keep_closing_php_tag = false           # 关闭PHP结束标签
+# 结构控制
+ij_php_braces_placement = next_line
+ij_php_braces_placement_control_structures = next_line
+ij_php_else_on_new_line = true
+ij_php_catch_on_new_line = true
+ij_php_finally_on_new_line = true
+
+# 空格控制
+ij_php_space_after_type_cast = true
+ij_php_spaces_around_equality_operators = true
+ij_php_spaces_within_array_initializer_braces = true
+ij_php_spaces_after_short_php_tag = true
+
+# 空行控制
+ij_php_keep_blank_lines_before_right_brace = 1
+ij_php_keep_blank_lines_in_declarations = 1
+
+# 命名规范
+ij_php_class_naming_convention = PASCAL_CASE
+ij_php_constant_naming_convention = UPPER_CASE_WITH_UNDERSCORES
+ij_php_method_naming_convention = CAMEL_CASE
+ij_php_parameter_naming_convention = CAMEL_CASE
+ij_php_property_naming_convention = CAMEL_CASE
+
+# 类型声明
+ij_php_force_strict_types_declaration = true
+ij_php_align_typehint_parameters = true
+
+# 数组控制
+ij_php_array_initializer_new_line_after_left_brace = true
+ij_php_array_initializer_right_brace_on_new_line = true
+
+# 链式调用
+ij_php_wrap_chained_method_calls = chop_down
+ij_php_keep_simple_method_in_one_line = false
+
+# 注释规范
+ij_php_doc_add_blank_line_after_description = true
+ij_php_doc_align_param_comments = true
+ij_php_doc_keep_empty_lines = false
 
 # --------------------
-# 前端文件配置
+# 目录结构规范
 # --------------------
-[*.{js,ts,jsx,tsx}]
-indent_size = 2                # 2空格缩进
-max_line_length = 100          # 最大行宽100字符
+[src/Entity/*.php]
+ij_php_class_name_suffix = Entity
+ij_php_orm_annotations = true
 
-[*.{css,scss,less}]
-indent_size = 2
-max_line_length = 100
+[src/Repository/*.php]
+ij_php_class_name_suffix = Repository
 
-# --------------------
-# 配置文件特殊规则
-# --------------------
-[config/*.php]
-ij_php_class_name_style = SNAKE_CASE_UPPER    # 配置类全大写
-ij_php_constant_naming = SNAKE_CASE_UPPER     # 常量命名规范
+[src/Service/*.php]
+ij_php_class_name_suffix = Service
 
 # --------------------
 # 测试文件特殊规则
 # --------------------
-[test/**/*.php]
-ij_php_unit_test_class_suffix = Test          # 测试类后缀
-ij_php_method_naming = camelCase              # 测试方法小驼峰
+[tests/**/*Test.php]
+ij_php_unit_test_method_prefix = test_
+ij_php_unit_test_annotation = @test
 
 # --------------------
-# 文档文件配置
+# 配套工具配置建议
 # --------------------
-[*.md]
-trim_trailing_whitespace = false  # Markdown允许行尾空格
-max_line_length = off             # 禁用行宽限制
 
-# --------------------
-# 数据文件配置
-# --------------------
-[*.{yml,yaml}]
-indent_size = 2                   # YAML 2空格缩进
+# PHP-CS-Fixer配置（.php-cs-fixer.dist.php）
+<?php
+$config = new PhpCsFixer\Config();
+return $config
+    ->setRules([
+        '@PSR12' => true,
+        'strict_param' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'no_unused_imports' => true,
+        'concat_space' => ['spacing' => 'one'],
+        'declare_strict_types' => true,
+        'class_attributes_separation' => [
+            'elements' => [
+                'const' => 'one',
+                'method' => 'one',
+                'property' => 'one'
+            ]
+        ],
+        'braces' => [
+            'position_after_control_structures' => 'next',
+            'position_after_functions_and_oop_constructs' => 'next'
+        ]
+    ])
+    ->setIndent("    ")
+    ->setLineEnding("\n");
 
-[*.json]
-indent_size = 2
-
-# --------------------
-# 数据库脚本文件
-# --------------------
-[*.sql]
-keyword_case = upper              # SQL关键字大写
-ij_sql_spaces_around_operators = 1 # 操作符空格
-ij_sql_align_clauses = true        # 子句对齐
-
-# --------------------
-# 模板文件配置
-# --------------------
-[*.{twig,blade.php}]
-ij_template_attribute_value_wrap = double_quotes # 属性双引号
-ij_template_indent_size = 2
-
-# --------------------
-# 构建工具配置
-# --------------------
-[Makefile]
-indent_style = tab               # Makefile使用制表符
-
-# --------------------
-# 例外文件配置
-# --------------------
-[package.json]
-indent_size = 2
+# PHP_CodeSniffer配置（phpcs.xml）
+<?xml version="1.0"?>
+<ruleset name="CustomStandard">
+    <rule ref="PSR12"/>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
+    <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility"/>
+</ruleset>
